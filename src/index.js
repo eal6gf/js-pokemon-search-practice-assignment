@@ -40,7 +40,12 @@ function handleImageChange(event){
   let targetClass = event.target.getAttribute('data-pokename') // pokemon's name
   let indivPokemon = pokemonStorage[targetClass]
   let changeImage = document.querySelector(`img[data-pokename=${targetClass}]`)
-  changeImage.setAttribute('src',indivPokemon.backImage)
+  if (changeImage.getAttribute('src') === indivPokemon.frontImage) {
+    changeImage.setAttribute('src',indivPokemon.backImage)
+  } else {
+    changeImage.setAttribute('src', indivPokemon.frontImage)
+  }
+
 }
 function handleFlip() {
   //select element, show src
